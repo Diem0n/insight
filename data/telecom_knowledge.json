@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Segment Analysis Overview",
+    "content": "The subscriber base is divided into four key segments based on churn risk and value. Early High-Risk segment has a 58% churn rate and the highest predicted churn probability of 0.72 on average. At-Risk Mid-Value subscribers have a moderate churn rate of 38% with average churn probability of 0.45. Loyal High-Value customers exhibit strong retention with only 22% churn rate and average churn probability of 0.28. Stable Low-Value subscribers are the most stable group with a 9% churn rate and churn probability of 0.11. The Early High-Risk segment represents 18% of the subscriber base but accounts for 41% of total projected revenue loss from churn."
+  },
+  {
+    "title": "Churn Model Performance Metrics",
+    "content": "The churn prediction model achieves an AUC-ROC of 0.87 on the holdout validation set, indicating strong discriminatory power. Precision at top decile is 74%, meaning 74 out of every 100 subscribers flagged as highest risk are true churners. Recall across the full at-risk population is 68%. The model uses gradient-boosted trees with 42 engineered features including tenure, monthly charges, service bundle, contract type, and call center interaction frequency. Model refresh cycle is monthly to capture seasonal drift. Feature importance rankings place contract_type, tenure, and monthly_charges as the top three predictors of churn."
+  },
+  {
+    "title": "Contract Risk Insights",
+    "content": "Month-to-month contract holders exhibit a churn rate 3.2x higher than annual contract holders and 5.1x higher than two-year contract holders. Of the Early High-Risk segment, 89% are on month-to-month contracts. Upgrading a month-to-month subscriber to a 12-month contract reduces their predicted churn probability by an average of 0.31 points. Contract migration incentives such as discounted first month, device upgrades, or added service bundles have shown a 27% acceptance rate in past campaigns. Targeting month-to-month holders in the Early High-Risk and At-Risk Mid-Value segments for contract upgrades is a high-ROI retention lever."
+  },
+  {
+    "title": "Pricing Sensitivity Insight",
+    "content": "Pricing sensitivity analysis reveals that subscribers paying above $75/month in the Early High-Risk segment are 2.4x more likely to churn than those paying below $60/month. However, blanket discounting is not recommended — only 31% of high-churn subscribers cite price as the primary churn driver. For price-sensitive churners, a targeted 10–15% discount offer on the current plan has shown a 34% save rate in retention campaigns. For the remaining 69%, service quality and contract flexibility are the primary drivers. Over-discounting to non-price-sensitive subscribers erodes ARPU without meaningful retention benefit. Discount eligibility should be gated by churn probability score and price sensitivity propensity model."
+  },
+  {
+    "title": "Service Stickiness Insight",
+    "content": "Subscribers enrolled in 3 or more service bundles (e.g., broadband, TV, mobile, home security) have a churn rate of only 11%, compared to 44% for subscribers with a single service. Each additional service bundle reduces predicted churn probability by approximately 0.09 points on average. Fiber optic internet subscribers show 19% lower churn than DSL subscribers, controlling for segment. Streaming service add-ons have the highest incremental stickiness coefficient (0.14 reduction in churn probability per add-on). Cross-sell campaigns targeting Early High-Risk and At-Risk Mid-Value subscribers with complementary service bundles are projected to reduce segment-level churn by 12–18% if executed with 40% acceptance rates."
+  },
+  {
+    "title": "Retention Strategy Recommendations",
+    "content": "Based on segment analysis, churn modeling, and behavioral data, the following retention strategies are recommended: (1) Contract Migration Campaign — Target all month-to-month Early High-Risk subscribers with a personalized contract upgrade offer including a one-month discount and a device upgrade; expected to retain 22–28% of targeted subscribers. (2) Bundle Cross-Sell Program — Offer complementary service bundles to At-Risk Mid-Value subscribers with fewer than 3 services; project 15% churn reduction in this segment. (3) Proactive Outreach for High-Value Churners — Assign dedicated account managers or priority call routing to Loyal High-Value subscribers showing early churn signals; cost-effective given their high ARPU. (4) Price Optimization for Price-Sensitive Churners — Deploy 10–15% discount offers only to subscribers flagged by the price sensitivity model; avoid blanket discounting. (5) Win-Back Campaign — For recently churned Early High-Risk subscribers, deploy a win-back offer within 30 days of churn; historical win-back rate is 18% within the first 30-day window."
+  }
+]
