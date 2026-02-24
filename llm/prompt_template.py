@@ -14,8 +14,9 @@ Required Output Format:
 A short executive overview of the answer.
 
 ### Data Evidence
-- Bullet point referencing retrieved knowledge insights.
-- Bullet point referencing SQL output (if applicable).
+- Format each bullet as: **Metric Name:** value — source description.
+- Example: **Churn Rate (Early High-Risk):** 58% — Segment Analysis Overview
+- One bullet per distinct data point. Be concise. Bold the metric name. Do not write paragraphs.
 
 ### Strategic Recommendation
 A clear, telecom-aligned actionable recommendation.
