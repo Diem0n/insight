@@ -239,6 +239,30 @@ Tests cover:
 
 ---
 
+## Dashboard
+
+The Streamlit UI is structured as a commercial intelligence tool, not a chat interface.
+
+**Sidebar**
+- Recent Queries — last 3 queries stored in session state, clickable to re-run
+- System Architecture expander — stack details (routing logic, model, embeddings, DB)
+
+**Per-query output (in order)**
+
+| Element | SQL mode | RAG mode |
+|---|---|---|
+| Mode badge | 🟩 green banner | 🟦 blue banner |
+| Metadata strip | `Model · Embeddings · Vector Index · DB` (11px gray) | same |
+| Metrics row | Query Type / Rows Returned / RAG Retrieved: No | Query Type / Knowledge Docs / SQL Executed: No |
+| Confidence | "Structured — based on live SQL result" | "High / Moderate — grounded in N doc(s)" |
+| Insight Report | `INSIGHT REPORT` header + Gemini response | same |
+| Copy Raw Insight | Expander with `st.code` (native copy button) | same |
+| Retrieved Docs | — | Expandable knowledge snippets |
+| SQL Results | Expandable: syntax-highlighted query + interactive table (`churn_probability` as progress bar, top 5 rows) | — |
+| Footer | Strict grounding policy notice | same |
+
+---
+
 ## Sample Questions
 
 **SQL queries:**

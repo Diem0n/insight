@@ -18,11 +18,9 @@ st.set_page_config(
     layout="centered",
 )
 
-# ── Session state ─────────────────────────────────────────────────────────────
 if "query_history" not in st.session_state:
     st.session_state.query_history = []
 
-# ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
     st.markdown("### \U0001f559 Recent Queries")
     if st.session_state.query_history:
@@ -46,7 +44,6 @@ with st.sidebar:
             "**Database:** SQLite \u2014 80 subscribers, 4 segments"
         )
 
-# ── Header ────────────────────────────────────────────────────────────────────
 st.title("\U0001f4e1 Telecom Commercial Copilot")
 st.caption("Retention Intelligence Assistant \u2014 powered by Gemini \u00b7 RAG \u00b7 SQL")
 st.divider()
@@ -64,7 +61,6 @@ if generate_btn:
     if not user_query.strip():
         st.warning("Please enter a question before generating an insight.")
     else:
-        # ── Multi-step loader ─────────────────────────────────────────────────
         with st.status("Processing query...", expanded=True) as status:
             st.write("\U0001f500 Routing query...")
             intent = route(user_query)
@@ -102,7 +98,6 @@ if generate_btn:
 
         st.divider()
 
-        # ── Mode badge ────────────────────────────────────────────────────────
         if intent == "sql":
             st.markdown(
                 '<div style="background:#d4edda;border-left:5px solid #28a745;'
@@ -122,7 +117,6 @@ if generate_btn:
                 unsafe_allow_html=True,
             )
 
-        # ── System metadata strip ─────────────────────────────────────────────
         st.markdown(
             '<p style="color:#999;font-size:11px;margin:2px 0 10px 0;">'
             'Model: Gemini 2.5 Flash&nbsp;&nbsp;|&nbsp;&nbsp;'
@@ -131,7 +125,6 @@ if generate_btn:
             unsafe_allow_html=True,
         )
 
-        # ── Context metrics ───────────────────────────────────────────────────
         if intent == "sql":
             row_count = max(len(sql_result.strip().splitlines()) - 1, 0) if sql_result else 0
             col1, col2, col3 = st.columns(3)
@@ -144,7 +137,6 @@ if generate_btn:
             col2.metric("Knowledge Docs", docs_count)
             col3.metric("SQL Executed", "No")
 
-        # ── Confidence indicator ──────────────────────────────────────────────
         if intent == "rag":
             conf = "High" if docs_count >= 3 else "Moderate"
             st.caption(f"**Confidence:** {conf} \u2014 grounded in {docs_count} retrieved document(s)")
@@ -153,7 +145,6 @@ if generate_btn:
 
         st.divider()
 
-        # ── Insight report ────────────────────────────────────────────────────
         st.markdown(
             '<p style="font-size:13px;color:#888;letter-spacing:1px;margin-bottom:2px;">'
             'INSIGHT REPORT</p><hr style="margin-top:0;">',
@@ -166,7 +157,6 @@ if generate_btn:
 
         st.divider()
 
-        # ── Expandable panels ─────────────────────────────────────────────────
         with st.expander("Retrieved Knowledge Documents", expanded=False):
             if raw_docs:
                 st.markdown(raw_docs)
@@ -201,7 +191,6 @@ if generate_btn:
             else:
                 st.info("No SQL query was executed for this question.")
 
-        # ── Footer ────────────────────────────────────────────────────────────
         st.divider()
         st.caption(
             "\U0001f512 This assistant enforces strict numeric grounding. "
