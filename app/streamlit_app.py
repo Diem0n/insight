@@ -13,7 +13,7 @@ from llm.prompt_template import build_prompt
 from llm.gemini_client import generate
 
 st.set_page_config(
-    page_title="Telecom Commercial Copilot",
+    page_title="Telecom Copilot",
     page_icon="\U0001f4e1",
     layout="centered",
 )
@@ -44,13 +44,13 @@ with st.sidebar:
             "**Database:** SQLite \u2014 80 subscribers, 4 segments"
         )
 
-st.title("\U0001f4e1 Telecom Commercial Copilot")
+st.title("\U0001f4e1 Telecom Copilot")
 st.caption("Retention Intelligence Assistant \u2014 powered by Gemini \u00b7 RAG \u00b7 SQL")
 st.divider()
 
 default_val = st.session_state.pop("pending_query", "")
 user_query = st.text_input(
-    label="Enter your commercial question:",
+    label="Enter your question:",
     placeholder="e.g. What are the top 10 highest churn risk subscribers?",
     value=default_val,
 )
